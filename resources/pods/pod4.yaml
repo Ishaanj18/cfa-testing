@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: policy-test-insecure-image
+  namespace: test
+  labels:
+    app: test-insecure-image
+spec:
+  containers:
+  - name: insecure-container
+    image: docker.io/library/nginx:1.15
+

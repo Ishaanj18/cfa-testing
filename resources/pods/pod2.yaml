@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: policy-test-capabilities
+  namespace: test
+  labels:
+    app: test-capabilities
+spec:
+  containers:
+  - name: capabilities-container
+    image: nginx:latest
+    securityContext:
+      capabilities:
+        add:
+        - NET_ADMIN
+        - SYS_TIME
+
