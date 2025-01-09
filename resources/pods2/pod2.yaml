@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: policy-test-docker-socket
+  namespace: test2
+  labels:
+    app: docker-socket
+spec:
+  containers:
+  - name: docker-container
+    image: docker:19.03.12
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket
+  volumes:
+  - name: docker-socket
+    hostPath:
+      path: /var/run/docker.sock
+
